@@ -4,12 +4,45 @@
   "description": "evaluate boolean clauses ( as strings ) against a state object",
   "main": "lib/main.js",
   "scripts": {
-    "test": "test"
+    "precommit": "npm run lint",
+    "prepush": "npm test",
+    "lint": "standard --fix",
+    "test": "npm run lint && jest"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/revilossor/state-condition.git"
   },
   "author": "oliver.ross@hotmail.com",
-  "license": "SEE LICENCE IN LICENCE"
+  "license": "SEE LICENCE IN LICENCE",
+  "dependencies": {
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "globals": [
+      "expect",
+      "describe",
+      "beforeAll",
+      "beforeEach",
+      "afterAll",
+      "afterEach",
+      "it",
+      "test",
+      "jest"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    }
+  }
 }
