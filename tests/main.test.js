@@ -4,7 +4,7 @@ const errors = require('../lib/errors')
 const mockClause = 'something===somthing'
 const mockState = { state: 'object' }
 
-describe('argumcnt validation', () => {
+describe('argument validation', () => {
   describe('clause', () => {
     it('throws "UNDEFINED_CLAUSE" if no clause is passed', () => {
       expect(() => { main() }).toThrow(errors.UNDEFINED_CLAUSE)
