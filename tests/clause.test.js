@@ -47,6 +47,18 @@ describe('constructor', () => {
         })
       })
     })
+    describe('and', () => {
+      symbols.and.forEach(andSymbol => {
+        it(`${andSymbol} ands together clauses`, () => {
+          const instance = new Clause(`something=thing${andSymbol}another=otherthing`)
+          expect(instance.model).toEqual([
+            'AND',
+            [{ key: 'something', value: 'thing' }],
+            [{ key: 'another', value: 'otherthing' }]
+          ])
+        })
+      })
+    })
   })
 })
 
